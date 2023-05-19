@@ -21,9 +21,22 @@ void printbin_recursive_mod(uint64_t n) {
     printf("\n");
 }
 
+void printbin_recursive_shift_helper(uint64_t n) {
+    if(n > 1) {
+        printbin_recursive_shift_helper(n >> 1);
+    }
+    printf("%li", n & 1);
+}
+
+void printbin_recursive_shift(uint64_t n) {
+    printbin_recursive_shift_helper(n);
+    printf("\n");
+}
+
 int main() {
     printbin_iterative(123);
     printbin_recursive_mod(123);
+    printbin_recursive_shift(123);
 
     return 0;
 }
